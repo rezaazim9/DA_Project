@@ -1,0 +1,181 @@
+\documentclass[t,aspectratio=169,12pt,professionalfonts]{beamer}
+\usepackage{graphicx,booktabs,amsmath,amssymb}
+\definecolor{ink}{HTML}{245C78}
+\definecolor{accent}{HTML}{CD6948}
+\usefonttheme[stillsansserifmath]{serif}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{frametitle}{fg=ink}
+\setbeamercolor{title}{fg=ink}
+\setbeamercolor{structure}{fg=ink}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+\input{common.tex}
+\renewcommand{\code}[1]{\lr{\nolinkurl{#1}}}
+\hypersetup{pdftitle={ارائه فاز اول - محمدرضا استادعظیم},pdfauthor={محمدرضا استادعظیم - 401100025}}
+\setbeamertemplate{footline}{\hfill{\scriptsize\num{401100025}\hspace{6mm}\insertframenumber/\inserttotalframenumber}\hspace{7mm}\vspace{2mm}}
+\newcommand{\chart}[1]{\begin{center}\includegraphics[width=.97\linewidth,height=.60\textheight,keepaspectratio]{../figures/slide_#1.pdf}\end{center}}
+\newcommand{\sourcenote}[1]{\vfill{\fontsize{6.8}{8}\selectfont\color{gray}#1}}
+\begin{document}
+\begin{frame}[plain]
+\vspace{5mm}
+{\LARGE\bfseries\color{ink} شناسایی نارضایتی متنی\par}
+\vspace{3mm}
+{\Large در نقدهای خدمات اشتراکی\par}
+\vspace{7mm}
+فاز اول پروژه تحلیل داده، مسیر ب\par
+\lr{Amazon Reviews'23}\par
+\vspace{7mm}
+محمدرضا استادعظیم\par
+شماره دانشجویی: \num{401100025}\par
+\vspace{4mm}
+{\small پاییز ۱۴۰۵، دانشکده علوم ریاضی}
+\end{frame}
+
+\begin{frame}{مسئله و سؤال اصلی}
+صف بررسی انسانی برای متن بازخورد، وقتی ستاره در دسترس نیست.
+\vspace{4mm}
+\begin{itemize}
+\item مرجع ضعیف نارضایتی: امتیاز یک یا دو ستاره، با حذف ستاره از ورودی.
+\item سؤال: آیا متن همراه زمینه و فراداده، در محصول دیده‌نشده بهتر از متن تنها عمل می‌کند؟
+\item فاز اول: شناخت داده و امکان‌پذیری؛ هنوز مدل پیش‌بینی آموزش نداده‌ایم.
+\end{itemize}
+\sourcenote{اگر ستاره معتبر در کاربرد موجود باشد، استفاده مستقیم از آن منطقی‌تر است. سؤال‌ها و دامنه: \code{PROJECT_CARD.md}.}
+\end{frame}
+
+\begin{frame}{داده و زیرمجموعه}
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+دسته رسمی & نقد خام & محصول\\
+\midrule
+اشتراک مجله & \num{71,497} & \num{3,391}\\
+بسته اشتراکی & \num{16,216} & \num{641}\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{itemize}
+\item تمام رکوردهای این دو دسته، بدون نمونه‌گیری براساس امتیاز.
+\item نقدهای منتشرشده و کاتالوگ مشاهده‌ای، از ۲۰۰۱ تا ۲۰۲۳.
+\item اتصال نقد به محصول با \code{parent_asin}، با پوشش \pct{100}.
+\end{itemize}
+\sourcenote{منبع رسمی: \lr{amazon-reviews-2023.github.io}؛ نشانی و هش چهار فایل: \code{data/source_manifest.json}.}
+\end{frame}
+
+\begin{frame}{کیفیت داده و تصمیم‌ها}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+نقد خام & \num{\RawReviews}\\
+نسخه تکراری دقیق اضافی & \num{\DuplicateReviews}\\
+ردیف هم‌کلیدِ متفاوت، قرنطینه & \num{\QuarantinedReviews}\\
+نقد معتبر پیش از تقسیم & \num{\AcceptedReviews}\\
+قیمت عددی معتبر & \num{0}، از \num{4,032} محصول\\
+\bottomrule
+\end{tabular}
+\end{center}
+امتیاز نامعتبر، زمان نامعتبر و اتصال ناموفق مشاهده نشد.
+\sourcenote{داده خام حفظ شده است. قیمت تهی را با صفر یا میانگین پر نکرده‌ایم. جزئیات: \code{tables/quality_issues.csv}.}
+\end{frame}
+
+\begin{frame}{دسترس‌پذیری وجه‌ها}
+\chart{03_modalities}
+تصویر نقد: مجله \pct{0.31}، بسته \pct{9.01}. قیمت عددی در هیچ دسته موجود نیست.
+\sourcenote{ممیزی کل داده معتبر، با مخرج نقد. تصویر یعنی وجود نشانی، نه دریافت و صحت پیکسل.}
+\end{frame}
+
+\begin{frame}{نبود فراداده با دسته مرتبط است}
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+فیلد موجود در سطح محصول & مجله & بسته\\
+\midrule
+توضیح محصول & \pct{45.65} & \pct{0}\\
+فهرست ویژگی‌ها & \pct{0} & \pct{97.04}\\
+سلسله‌مراتب دسته & \pct{75.41} & \pct{0}\\
+مشخصات ساختاریافته & \pct{97.17} & \pct{6.40}\\
+\bottomrule
+\end{tabular}
+\end{center}
+شاخص نبود می‌تواند نام دسته را افشا کند. مقایسه وجه‌ها باید درون دسته نیز گزارش شود.
+\sourcenote{مخرج: ۳۳۹۱ محصول مجله و ۶۴۱ محصول بسته. این الگو، سازوکار دقیق نبود داده را اثبات نمی‌کند.}
+\end{frame}
+
+\begin{frame}{عدم توازن امتیازها}
+\chart{01_rating_distribution}
+سهم یک/دوستاره در آموزش: \pct{\NegRate}. دقت اکثریت: \pct{\MajorityAccuracy}، بازیابی منفی: صفر.
+\sourcenote{فقط آموزش؛ این اعداد نتیجه ارزیابی نگه‌داشته‌شده نیستند. معیار اصلی پیشنهادی آینده: \lr{Average Precision}.}
+\end{frame}
+
+\begin{frame}{طول نقد و کیفیت متن}
+\chart{02_text_length}
+میانه \num{\MedianWords} واژه؛ \pct{\ShortRate} حداکثر سه واژه؛ \pct{\LongRate} حداقل ۲۰۰ واژه.
+\sourcenote{تعریف واژه: جداسازی با فاصله پس از پاک‌سازی HTML. غیر ASCII بودن، تشخیص زبان نیست. همه آمارها از آموزش‌اند.}
+\end{frame}
+
+\begin{frame}{نارضایتی و طول متن}
+\chart{06_negative_by_length}
+در مجله، سهم یک/دوستاره: متن کوتاه \pct{6.47} و متن بلند \pct{34.56}.
+\sourcenote{رابطه توصیفی، بدون ادعای علّی. شمار نمونه گروه‌ها در \code{tables/train_negative_by_length.csv} آمده است.}
+\end{frame}
+
+\begin{frame}{زیرگروه خرید تأییدشده}
+\chart{08_verified_rating}
+در هر دو دسته، گروه خرید تأییدشده نرخ امتیاز پایین کمتری دارد.
+\sourcenote{تأیید خرید تصادفی نیست؛ از این اختلاف نمی‌توان اثر علّی یا صداقت نقد را استنتاج کرد. فقط آموزش.}
+\end{frame}
+
+\begin{frame}{زمان و وابستگی محصول}
+\chart{07_product_concentration}
+ده محصول: \pct{\TopTenShare} نقدهای آموزش. وابستگی درون کالا مهم است.
+\sourcenote{تاریخچه دسته‌ها متفاوت است. تعداد نقد، فروش یا تقاضا نیست. نمودار زمان در گزارش و \code{figures/05_monthly_activity.pdf} است.}
+\end{frame}
+
+\begin{frame}{تقسیم برحسب محصول والد}
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+بخش & نقد نهایی & محصول\\
+\midrule
+آموزش & \num{\TrainRows} & \num{\TrainProducts}\\
+اعتبارسنجی & \num{\ValidationRows} & \num{\ValidationProducts}\\
+آزمون & \num{\TestRows} & \num{\TestProducts}\\
+\bottomrule
+\end{tabular}
+\end{center}
+\num{\PurgedReviews} متن مشترک مشمول قاعده، از بخش کم‌اولویت حذف شد. اشتراک محصول و متن مشمول قاعده اکنون صفر است.
+\sourcenote{تقسیم ثابت با SHA-256 و بذر 401100025. کاربر مشترک و متن تقریباً مشابه ممکن است بماند. هدف، کالای جدید است؛ نه کاربر یا زمان جدید.}
+\end{frame}
+
+\begin{frame}{خط مبنا و کنترل نشت}
+\begin{itemize}
+\item مرجع ثابت آموزش: احتمال منفی \pct{\NegRate} و \lr{AP=0.2034}.
+\item ستاره، میانگین/تعداد امتیاز محصول و رأی انباشته از ورودی آینده حذف می‌شوند.
+\item واژگان و تبدیل‌ها فقط روی آموزش برازش می‌شوند؛ آستانه با اعتبارسنجی انتخاب می‌شود.
+\item مقایسه آینده: متن تنها، ساختار تنها، ترکیب، روی ردیف‌های یکسان.
+\end{itemize}
+\sourcenote{هیچ مدل، خوشه یا تعبیه‌ای در فاز اول آموزش داده نشده است. مرجع ثابت، عملکرد آزمون نیست.}
+\end{frame}
+
+\begin{frame}{محدودیت و نتیجه فاز اول}
+\begin{itemize}
+\item متن و نشانی تصویر محصول پوشش بالایی دارند؛ قیمت قابل استفاده نداریم.
+\item نبود فیلدها با دسته مرتبط است و وابستگی درون محصول جدی است.
+\item برچسب ستاره ضعیف و کاتالوگ گذشته‌نگر است؛ ادعای تعمیم زمانی نداریم.
+\item خروجی: ممیزی بازاجراپذیر، تقسیم ثابت، کارت پروژه و برنامه ارزیابی.
+\end{itemize}
+\sourcenote{هوش مصنوعی در طراحی، کد و نگارش کمک گسترده داشته است؛ افشا در \code{AI_USAGE.md}. مرور مستقل و دفاع دانشجو لازم است.}
+\end{frame}
+
+\begin{frame}{منابع و اجرای دوباره}
+\begin{itemize}
+\item صفحه رسمی داده و فرهنگ فیلدها: \lr{amazon-reviews-2023.github.io}
+\item \lr{Hou et al. (2024), arXiv:2403.03952}
+\item صورت پروژه درس، صفحات ۵ تا ۷ و ۱۷ تا ۱۸.
+\item اجرای کامل از پوشه اصلی: \code{python reproduce.py}
+\end{itemize}
+\vspace{4mm}
+بسته شامل داده خام، کد، دفترچه اجراشده، شکل‌ها، جداول، گزارش و منبع لاتک هر دو \lr{PDF} است.
+\sourcenote{برچسب phase-1 در بسته Git محلی موجود است. ثبت موضوع و ارسال به GitHub/CW با حساب دانشجو انجام می‌شود.}
+\end{frame}
+\end{document}

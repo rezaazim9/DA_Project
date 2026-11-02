@@ -1,0 +1,37 @@
+{
+  "retrieved_date": "2026-11-01",
+  "files": [
+    {
+      "category": "Magazine_Subscriptions",
+      "kind": "reviews",
+      "filename": "Magazine_Subscriptions.jsonl.gz",
+      "url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Magazine_Subscriptions.jsonl.gz",
+      "bytes": 9986670,
+      "sha256": "c77a5c092039158c3f19f77f44e49c3a94fa28591eb159f4348c3d8af53bdf53"
+    },
+    {
+      "category": "Magazine_Subscriptions",
+      "kind": "metadata",
+      "filename": "meta_Magazine_Subscriptions.jsonl.gz",
+      "url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Magazine_Subscriptions.jsonl.gz",
+      "bytes": 675250,
+      "sha256": "f46912359f8c29a7966e9db0dc474d91388b1a0b7232808611752da1f0bf3cf4"
+    },
+    {
+      "category": "Subscription_Boxes",
+      "kind": "reviews",
+      "filename": "Subscription_Boxes.jsonl.gz",
+      "url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Subscription_Boxes.jsonl.gz",
+      "bytes": 2702022,
+      "sha256": "d62b81bd021ab6482e68605a97702f7c9df21314ff9657d3c1d0c34351d66ebd"
+    },
+    {
+      "category": "Subscription_Boxes",
+      "kind": "metadata",
+      "filename": "meta_Subscription_Boxes.jsonl.gz",
+      "url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Subscription_Boxes.jsonl.gz",
+      "bytes": 283011,
+      "sha256": "d5d1ff2284b4b4fdc4640bb1760755d21d4f9410b10daf932b27cdae41efb60e"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+issue,count
+raw_review_rows,87713
+exact_duplicate_excess,774
+business_key_conflict_rows,2
+invalid_rating_rows,0
+invalid_parent_id_rows,0
+invalid_variant_id_rows,0
+missing_user_id_rows,0
+invalid_timestamp_rows,0
+invalid_helpful_vote_rows,0
+invalid_verified_purchase_rows,0
+quarantined_rows,2

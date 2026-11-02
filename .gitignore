@@ -1,0 +1,20 @@
+# Raw data is bundled privately for offline reproduction, never committed to Git.
+data/raw/*.gz
+data/processed/*.gz
+data/splits/*.gz
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+reports/*.aux
+reports/*.log
+reports/*.out
+reports/*.toc
+reports/*.nav
+reports/*.snm
+reports/*.vrb
+reports/*.fls
+reports/*.fdb_latexmk
+phase1-history.bundle
+MANIFEST_SHA256.txt
+SUBMISSION_METADATA.json

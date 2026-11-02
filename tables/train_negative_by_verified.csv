@@ -1,0 +1,5 @@
+source_category,verified_purchase,n,negative_n,negative_rate
+Magazine_Subscriptions,False,9246,3223,0.34858317
+Magazine_Subscriptions,True,39132,5973,0.15263723
+Subscription_Boxes,False,1264,567,0.44857595
+Subscription_Boxes,True,10321,2431,0.23553919

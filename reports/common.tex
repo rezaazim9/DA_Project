@@ -1,0 +1,11 @@
+% Compile with XeLaTeX from the reports directory. Fonts are bundled.
+\usepackage{fontspec}
+\input{latex_compat.tex}
+\usepackage{xepersian}
+\settextfont[Path=../fonts/,BoldFont=DejaVuSans-Bold.ttf]{DejaVuSans.ttf}
+\setlatintextfont[Path=../fonts/,BoldFont=DejaVuSans-Bold.ttf]{DejaVuSans.ttf}
+\setmonofont[Path=../fonts/]{DejaVuSansMono.ttf}
+\newcommand{\code}[1]{\lr{\small\nolinkurl{#1}}}
+\newcommand{\pct}[1]{\lr{#1\%}}
+\newcommand{\num}[1]{\lr{#1}}
+\input{generated_values.tex}

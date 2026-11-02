@@ -1,0 +1,7 @@
+split,source_category,rows,products
+test,Magazine_Subscriptions,14480,514
+test,Subscription_Boxes,1189,98
+train,Magazine_Subscriptions,48378,2382
+train,Subscription_Boxes,11585,460
+validation,Magazine_Subscriptions,7675,480
+validation,Subscription_Boxes,3237,83

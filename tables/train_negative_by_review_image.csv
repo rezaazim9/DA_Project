@@ -1,0 +1,5 @@
+source_category,has_review_image,n,negative_n,negative_rate
+Magazine_Subscriptions,False,48225,9154,0.18981856
+Magazine_Subscriptions,True,153,42,0.2745098
+Subscription_Boxes,False,10599,2758,0.26021323
+Subscription_Boxes,True,986,240,0.24340771

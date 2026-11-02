@@ -1,0 +1,17 @@
+unit,field,cramers_v,status
+review,has_text,0.022199777,descriptive effect only; no independence or causality claim
+review,has_review_title,,degenerate: no variation
+review,has_review_image,0.24622033,descriptive effect only; no independence or causality claim
+review,has_metadata,,degenerate: no variation
+review,has_product_image,,degenerate: no variation
+review,has_price,,degenerate: no variation
+review,has_timestamp,,degenerate: no variation
+review,has_interaction,,degenerate: no variation
+product,has_product_title,0.036226676,descriptive effect only; no independence or causality claim
+product,has_product_image,,degenerate: no variation
+product,has_price,,degenerate: no variation
+product,has_description,0.34322175,descriptive effect only; no independence or causality claim
+product,has_features,0.98231977,descriptive effect only; no independence or causality claim
+product,has_categories,0.57244593,descriptive effect only; no independence or causality claim
+product,has_details,0.87827521,descriptive effect only; no independence or causality claim
+product,has_store,0.091263079,descriptive effect only; no independence or causality claim

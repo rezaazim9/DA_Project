@@ -1,0 +1,7 @@
+source_category,has_text,has_review_image,has_product_image,has_price,rows
+Magazine_Subscriptions,False,True,True,False,1
+Magazine_Subscriptions,True,False,True,False,70702
+Magazine_Subscriptions,True,True,True,False,219
+Subscription_Boxes,False,True,True,False,11
+Subscription_Boxes,True,False,True,False,14572
+Subscription_Boxes,True,True,True,False,1432

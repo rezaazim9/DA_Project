@@ -1,0 +1,7 @@
+category,x,y,spearman_rho
+ALL,word_count,rating,-0.23468275
+ALL,word_count,helpful_vote,0.47871652
+Magazine_Subscriptions,word_count,rating,-0.23477331
+Magazine_Subscriptions,word_count,helpful_vote,0.48816226
+Subscription_Boxes,word_count,rating,-0.18837067
+Subscription_Boxes,word_count,helpful_vote,0.36397788

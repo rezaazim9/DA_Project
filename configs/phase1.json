@@ -1,0 +1,29 @@
+{
+  "student_name": "محمدرضا استادعظیم",
+  "student_id": "401100025",
+  "course": "تحلیل داده، پاییز ۱۴۰۵",
+  "path": "ب",
+  "categories": ["Magazine_Subscriptions", "Subscription_Boxes"],
+  "seed": 401100025,
+  "subset_rule": "All records in the two named official category files; no outcome-based subsampling.",
+  "source_url_base": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/",
+  "valid_timestamp_start": "1996-05-01T00:00:00Z",
+  "valid_timestamp_end_exclusive": "2023-10-01T00:00:00Z",
+  "target": "rating <= 2",
+  "split": {
+    "unit": "parent_asin",
+    "method": "sha256(seed:parent_asin), first 16 hex digits / 2**64",
+    "train_fraction": 0.7,
+    "validation_fraction": 0.15,
+    "test_fraction": 0.15,
+    "copied_text_min_words": 5,
+    "priority": ["train", "validation", "test"],
+    "eda_partition": "train"
+  },
+  "text": {"very_short_max_words": 3, "very_long_min_words": 200},
+  "primary_metric_later": "average_precision",
+  "bootstrap_unit_later": "parent_asin",
+  "bootstrap_repetitions_later": 1000,
+  "metadata_timing": "Retrospective snapshot; no claim of historical availability.",
+  "phase1_only": true
+}

@@ -1,0 +1,5 @@
+file,category,kind,rows,fields,compressed_bytes
+Magazine_Subscriptions.jsonl.gz,Magazine_Subscriptions,reviews,71497,10,9986670
+meta_Magazine_Subscriptions.jsonl.gz,Magazine_Subscriptions,metadata,3391,16,675250
+Subscription_Boxes.jsonl.gz,Subscription_Boxes,reviews,16216,10,2702022
+meta_Subscription_Boxes.jsonl.gz,Subscription_Boxes,metadata,641,14,283011

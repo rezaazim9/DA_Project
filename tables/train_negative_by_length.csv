@@ -1,0 +1,13 @@
+source_category,length_bin,n,negative_n,negative_rate
+Magazine_Subscriptions,0-3,5718,370,0.06470794
+Magazine_Subscriptions,4-10,9029,1137,0.12592757
+Magazine_Subscriptions,11-30,16051,2839,0.17687372
+Magazine_Subscriptions,31-100,13482,3477,0.25789942
+Magazine_Subscriptions,101-200,2987,989,0.33110144
+Magazine_Subscriptions,201+,1111,384,0.34563456
+Subscription_Boxes,0-3,598,75,0.12541806
+Subscription_Boxes,4-10,1676,323,0.19272076
+Subscription_Boxes,11-30,3600,829,0.23027778
+Subscription_Boxes,31-100,4429,1310,0.29577783
+Subscription_Boxes,101-200,1014,368,0.36291913
+Subscription_Boxes,201+,268,93,0.34701493

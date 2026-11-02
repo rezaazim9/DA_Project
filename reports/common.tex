@@ -1,9 +1,41 @@
-% Compile with XeLaTeX from the reports directory. Fonts are bundled.
+% !TeX root = phase1.tex
+% !TeX program = xelatex
+% Prefer the requested fonts when available; otherwise use bundled fonts.
 \usepackage{fontspec}
 \input{latex_compat.tex}
 \usepackage{xepersian}
-\settextfont[Path=../fonts/,BoldFont=DejaVuSans-Bold.ttf]{DejaVuSans.ttf}
-\setlatintextfont[Path=../fonts/,BoldFont=DejaVuSans-Bold.ttf]{DejaVuSans.ttf}
+
+% The optional requirements/ directory is relative to reports/.
+\IfFileExists{requirements/XB Niloofar.ttf}{%
+  \settextfont[Path=requirements/,Scale=1.09,
+    BoldFont={XB Niloofar.ttf},BoldFeatures={FakeBold=1.5},
+    ItalicFont={XB Niloofar.ttf},ItalicFeatures={FakeSlant=.2}]{XB Niloofar.ttf}
+}{%
+  \IfFontExistsTF{XB Niloofar}{%
+    \settextfont[Scale=1.09]{XB Niloofar}
+  }{%
+    \settextfont[Path=../fonts/,BoldFont=DejaVuSans-Bold.ttf]{DejaVuSans.ttf}
+  }%
+}
+\IfFileExists{requirements/XB Yas.ttf}{%
+  \setdigitfont[Path=requirements/,Scale=1.09,
+    BoldFont={XB Yas.ttf},BoldFeatures={FakeBold=1.5},
+    ItalicFont={XB Yas.ttf},ItalicFeatures={FakeSlant=.2},
+    BoldItalicFont={XB Yas.ttf},BoldItalicFeatures={FakeBold=1.5,FakeSlant=.2}]{XB Yas.ttf}
+}{%
+  \IfFontExistsTF{XB Yas}{%
+    \setdigitfont[Scale=1.09]{XB Yas}
+  }{%
+    \setdigitfont[Path=../fonts/,BoldFont=DejaVuSans-Bold.ttf,
+      ItalicFont=DejaVuSans.ttf,ItalicFeatures={FakeSlant=.2},
+      BoldItalicFont=DejaVuSans-Bold.ttf,BoldItalicFeatures={FakeSlant=.2}]{DejaVuSans.ttf}
+  }%
+}
+\IfFontExistsTF{Times New Roman}{%
+  \setlatintextfont{Times New Roman}
+}{%
+  \setlatintextfont[Path=../fonts/,BoldFont=DejaVuSans-Bold.ttf]{DejaVuSans.ttf}
+}
 \setmonofont[Path=../fonts/]{DejaVuSansMono.ttf}
 \newcommand{\code}[1]{\lr{\small\nolinkurl{#1}}}
 \newcommand{\pct}[1]{\lr{#1\%}}

@@ -1,5 +1,13 @@
 % Compatibility shims for LaTeX formats that lack newer conditional convenience macros.
 % Upstream package files remain unmodified.
+% !TeX root = phase1.tex
+% !TeX program = xelatex
+
+% Current bidi table support also calls this when PDF tagging is not enabled.
+% In an untagged document the command is a no-op; retain a real definition
+% unchanged when the TeX installation provides one.
+\providecommand{\UseMathForPositioningText}{}
+
 \makeatletter
 \providecommand{\IfClassLoadedT}[2]{\@ifclassloaded{#1}{#2}{}}
 \providecommand{\IfClassLoadedF}[2]{\@ifclassloaded{#1}{}{#2}}

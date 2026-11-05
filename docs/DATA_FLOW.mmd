@@ -1,8 +1,0 @@
-flowchart TD
-  R["Review JSONL files"] --> A["Integrity and quality audit"]
-  M["Product metadata JSONL files"] --> A
-  A --> J["Many-to-one join on parent_asin"]
-  J --> S["Product split and copied-text purge"]
-  S --> T["Training-only EDA"]
-  S --> H["Validation and test reserved"]
-  T --> O["Tables, figures, report and slides"]
